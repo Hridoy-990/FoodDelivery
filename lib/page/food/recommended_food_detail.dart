@@ -1,32 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/controllers/recommended_product_controller.dart';
+import 'package:food_delivery/routs/route_helper.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/expandable_text_widget.dart';
+import 'package:get/get.dart';
+
+import '../../utils/app_constants.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({super.key});
+  final int pageId;
+  const RecommendedFoodDetail({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
+    print("Product img: ${product.img}");
+    print("Product description: ${product.description}");
+    print("Product price: ${product.price}");
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
+                GestureDetector(onTap: (){
+                  Get.toNamed(RouteHelper.getInitial());
+                },child: AppIcon(icon: Icons.clear)),
                 AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             ),
             bottom: PreferredSize(
                 preferredSize: Size.fromHeight(20),
                 child: Container(
-                  child: Center(child: BigText(size: Dimensions.font26,text: "Break Fast Side")),
+                  child: Center(child: BigText(size: Dimensions.font26,text: product.name)),
                   width: double.maxFinite,
                   padding: EdgeInsets.only(top: 5, bottom: 10),
                   decoration: BoxDecoration(
@@ -41,8 +54,8 @@ class RecommendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/image/food_5.jpg",
+              background: Image.network(
+                AppConstants.BASE_URL+AppConstants.UPLOAD_IMAGE+product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -53,8 +66,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 Container(
                   child: ExpandableTextWidget(
-                      text: "//This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this couThis Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this coufood in this country, this food is very spicy and delicious This Biryany is most popular food in Bangladesh, specially mogol started this food in this country, this food is very spicy and delicious",
-                  ),
+                      text: product.description!),
                   margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
                 )
               ],
@@ -81,7 +93,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                     backgroundColor: AppColors.mainColor,
                     icon: Icons.remove
                 ),
-                BigText(text: "\$12.88 "+" X "+" 0 ", color: AppColors.mainBlackColor,size: Dimensions.font26,),
+                BigText(text: "\$${product.price!} "+" X "+" 0 ", color: AppColors.mainBlackColor,size: Dimensions.font26,),
                 AppIcon(
                     iconSize: Dimensions.iconSize24,
                     iconColor: Colors.white,
@@ -117,7 +129,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.only(top: Dimensions.height15, bottom: Dimensions.height15,left: Dimensions.width15, right: Dimensions.width15, ),
-                  child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
+                  child: BigText(text: "\$${product.price!} | Add to cart", color: Colors.white,),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius20),
                       color: AppColors.mainColor
