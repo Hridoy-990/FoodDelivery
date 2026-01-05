@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/cart_controller.dart';
 import 'package:food_delivery/controllers/popular_product_controller.dart';
 import 'package:food_delivery/page/cart/cart_page.dart';
-import 'package:food_delivery/page/home/main_food_page.dart';
 import 'package:food_delivery/routs/route_helper.dart';
 import 'package:food_delivery/utils/app_constants.dart' show AppConstants;
 import 'package:food_delivery/utils/dimensions.dart';
@@ -10,11 +9,9 @@ import 'package:food_delivery/widgets/app_column.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/expandable_text_widget.dart';
-import 'package:food_delivery/widgets/small_text.dart';
 import 'package:get/get.dart';
 
 import '../../utils/colors.dart';
-import '../../widgets/icon_and_text_widget.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final int pageId;
