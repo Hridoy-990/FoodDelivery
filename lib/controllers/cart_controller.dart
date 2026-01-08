@@ -25,6 +25,7 @@ class CartController extends GetxController{
           quantity: value.quantity!+quantity,
           isExist: true,
           time: DateTime.now().toString(),
+          product: product,
         );
       });
       if(totalQuantity <= 0) {
@@ -33,7 +34,6 @@ class CartController extends GetxController{
     }else{
       if(quantity > 0){
         _items.putIfAbsent(product.id!, () {
-          print("adding item to the cart id ${product.id!} quantity: $quantity");
           return CartModel(
             id: product.id!,
             name: product.name,
@@ -42,6 +42,7 @@ class CartController extends GetxController{
             quantity: quantity,
             isExist: true,
             time: DateTime.now().toString(),
+            product: product,
           );});
       }else{
         Get.snackbar("item count", "You should at least add an items in the cart!",
@@ -50,7 +51,7 @@ class CartController extends GetxController{
         );
       }
     }
-
+    update();
   }
   bool existInCart(ProductModel product){
     if(_items.containsKey(product.id)){
