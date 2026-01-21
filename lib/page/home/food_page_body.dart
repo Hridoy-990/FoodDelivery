@@ -48,6 +48,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         // slider section
       GetBuilder<PopularProductController>(builder: (popularProducts){
+        print("Data recived " + popularProducts.isLoaded.toString());
         return popularProducts.isLoaded? Container(
 //      color: Colors.redAccent,
           height: Dimensions.pageView,

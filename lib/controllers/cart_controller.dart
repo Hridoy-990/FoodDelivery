@@ -12,6 +12,7 @@ class CartController extends GetxController{
   Map<int, CartModel> _items={};
 
   Map<int, CartModel> get items => _items;
+  List <CartModel> storageItems = [];
   void addItem(ProductModel product, int quantity){
     var totalQuantity = 0;
     if(_items.containsKey(product.id!)){
@@ -51,6 +52,7 @@ class CartController extends GetxController{
         );
       }
     }
+    cartRepo.addToCartList(getItems);
     update();
   }
   bool existInCart(ProductModel product){
@@ -90,6 +92,17 @@ class CartController extends GetxController{
     return _items.entries.map((e){
      return e.value;
     }).toList();
+  }
+  List<CartModel> getCartData(){
+    setCart = cartRepo.getCartList();
+    return storageItems ;
+  }
+  set setCart(List<CartModel> items){
+    storageItems = items ;
+    print("length of cart items "+storageItems.length.toString());
+    for(int i=0; i<storageItems.length; i++){
+      _items.putIfAbsent(storageItems[i].product!.id!, () => storageItems[i]);
+    }
   }
 
 }
