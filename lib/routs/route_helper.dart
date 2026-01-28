@@ -23,7 +23,7 @@ class RouteHelper{
     GetPage(name: splashPage, page: ()=> const SplashScreen()),
 
     // COMMENT THIS OUT - it conflicts with home: SplashScreen()
-    // GetPage(name: initial, page: ()=> HomePage()),
+     GetPage(name: initial, page: ()=> HomePage()),
 
     GetPage(name: popularFood, page: (){
       var pageId = Get.parameters['pageId'];
