@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/page/account/account_page.dart';
 import 'package:food_delivery/page/cart/cart_history.dart';
 import 'package:food_delivery/page/cart/cart_page.dart';
 import 'package:food_delivery/page/home/main_food_page.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     MainFoodPage(),
     Container(child: Center(child: Text("Next Page")),),
     CartHistory(),
-    Container(child: Center(child: Text("Next next next  next Page")),),
+    AccountPage(),
   ];
 
   void onTapNav(int index){

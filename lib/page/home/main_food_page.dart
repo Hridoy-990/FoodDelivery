@@ -4,6 +4,11 @@ import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../controllers/popular_product_controller.dart';
+import '../../controllers/recommended_product_controller.dart';
 
 
 class MainFoodPage extends StatefulWidget {
@@ -14,10 +19,17 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+  Future <void> _loadResources() async {
+    // Simulate a network call or data loading
+    await Future.delayed(Duration(seconds: 2));
+    // You can add your data fetching logic here
+    await Get.find<PopularProductController>().getPopularProductList();
+    await Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: RefreshIndicator(child: Column(
         children: [
           //showing the header
           Container(
@@ -62,7 +74,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             child: FoodPageBody(),
           ))
         ],
-      )
+      ), onRefresh: _loadResources)
     );
   }
 }
