@@ -7,7 +7,7 @@ import 'package:food_delivery/widgets/big_text.dart';
 class AccountWidget extends StatelessWidget {
   final AppIcon appIcon;
   final BigText bigText;
-  AccountWidget({super.key, required this.appIcon, required this.bigText});
+  const AccountWidget({super.key, required this.appIcon, required this.bigText});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,6 @@ class AccountWidget extends StatelessWidget {
           top: Dimensions.height10,
           bottom: Dimensions.height10
       ),
-      child: Row(
-        children: [
-          appIcon,
-          SizedBox(width: Dimensions.width20),
-          bigText
-        ],
-      ),
       decoration: BoxDecoration(
         color: Colors.white,  // Moved color here
         boxShadow: [
@@ -32,6 +25,13 @@ class AccountWidget extends StatelessWidget {
               blurRadius: 1,
               color: Colors.grey.withValues(alpha: 0.2)
           ),
+        ],
+      ),
+      child: Row(
+        children: [
+          appIcon,
+          SizedBox(width: Dimensions.width20),
+          bigText
         ],
       ),
     );
