@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
                 return GetMaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: 'Food Delivery',
-                  home: const SignInPage(),
-                  //initialRoute: RouteHelper.getSplashPage(),
+                  //home: const SignInPage(),
+                  initialRoute: RouteHelper.getSplashPage(),
                   getPages: RouteHelper.routes,
                 );
               }

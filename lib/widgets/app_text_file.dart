@@ -7,7 +7,8 @@ class AppTextFile extends StatelessWidget {
   final IconData icon;
   final TextEditingController textEditingController;
   final String hintText;
-  const AppTextFile({super.key, required this.icon, required this.textEditingController, required this.hintText});
+  final bool isObscure;
+  const AppTextFile({super.key, required this.icon, required this.textEditingController, required this.hintText,  this.isObscure = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +23,15 @@ class AppTextFile extends StatelessWidget {
         borderRadius: BorderRadius.circular(Dimensions.radius15),
         boxShadow: [
           BoxShadow(
-              blurRadius: 10,
-              spreadRadius: 7,
-              offset: Offset(1, 10),
+              blurRadius: 3,
+              spreadRadius:1,
+              offset: Offset(1, 1),
               color: const Color(0x33999999)
           ),
         ],
       ),
       child: TextField(
+        obscureText: isObscure? true : false,
         controller: textEditingController,
         decoration: InputDecoration(
           hintText: hintText,
