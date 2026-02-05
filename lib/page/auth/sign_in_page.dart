@@ -42,18 +42,6 @@ class SignInPage extends StatelessWidget {
       } else if (password.length < 6) {
         showCustomSnackBar(
             "Password can not be less than six characters", title: "Password");
-      }else if (!hasUpperCase.hasMatch(password)) {
-        showCustomSnackBar(
-            "Password must contain at least one uppercase letter",
-            title: "Password");
-      } else if (!hasLowerCase.hasMatch(password)) {
-        showCustomSnackBar(
-            "Password must contain at least one lowercase letter",
-            title: "Password");
-      } else if (!hasDigits.hasMatch(password)) {
-        showCustomSnackBar(
-            "Password must contain at least one number",
-            title: "Password");
       }  else {
         // everything is fine
         authController.login(email, password).then((status) {;

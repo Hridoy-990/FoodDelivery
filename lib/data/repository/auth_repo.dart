@@ -52,4 +52,13 @@ Future<String> getUserToken() async{
     }
   }
 
+  bool clearSharedData() {
+    sharedPreferences.remove(AppConstants.TOKEN);
+    sharedPreferences.remove(AppConstants.USER_PASSWORD);
+    sharedPreferences.remove(AppConstants.USER_NUMBER);
+    apiClient.token = "";
+    apiClient.updateHeader('');
+    return true;
+  }
+
 }

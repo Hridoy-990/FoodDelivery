@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../base/show_custom_snackbar.dart';
+import '../../routs/route_helper.dart';
 import '../../utils/app_constants.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -83,7 +84,7 @@ class SignUpPage extends StatelessWidget {
         authController.registration(signUpBody).then((status) {;
           if (status.isSuccess) {
             print("success registration");
-            //Get.toNamed(RouteHelper.getInitial());
+            Get.toNamed(RouteHelper.getInitial());
           } else {
             showCustomSnackBar(status.message);
           }

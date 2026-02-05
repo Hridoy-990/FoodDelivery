@@ -15,6 +15,12 @@ class AuthController extends GetxController implements GetxService{
     update();
     Response response = await authRepo.registration(signUpBody);
     late ResponseModel responseModel;
+    // Add these debug prints
+    print("Status Code: ${response.statusCode}");
+    print("Status Text: ${response.statusText}");
+    print("Response Body: ${response.body}");
+    print("Request Data: ${signUpBody.toJson()}");
+
     if (response.statusCode == 200) {
       print("registration successful");
       authRepo.saveUserToken(response.body["token"]);
@@ -53,6 +59,10 @@ class AuthController extends GetxController implements GetxService{
 
   bool userLoggedIn() {
     return authRepo.userLoggedIn();
+  }
+
+  bool clearSharedData() {
+    return authRepo.clearSharedData();
   }
 
 
